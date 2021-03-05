@@ -4,7 +4,7 @@
       <p>{{ date }}</p>
       <p id="text">VueJs Tutorial Todo Liste</p>
       <p id="tache">{{}} tache</p>
-      <Newtodo />
+      <Newtodo v-on:NewTask="AddTask" />
       <TodoListe />
     </div>
   </div>
@@ -30,6 +30,7 @@ export default {
         "samedi",
         "dimanche",
       ],
+      cont: [],
     };
   },
   computed: {
@@ -47,6 +48,11 @@ export default {
   components: {
     Newtodo,
     TodoListe,
+  },
+  methods: {
+    AddTask(Tache) {
+      this.cont.push(Tache, 0);
+    },
   },
 };
 </script>
